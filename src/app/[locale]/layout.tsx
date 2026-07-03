@@ -49,7 +49,7 @@ export async function generateMetadata({
       url: `${SITE_URL}/${locale}`,
       locale,
     },
-    icons: { icon: '/icon.svg' },
+    icons: { icon: [{ url: '/icon.svg', type: 'image/svg+xml' }] },
   };
 }
 
