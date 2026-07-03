@@ -1,0 +1,228 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "services": "Services",
+    "news": "News",
+    "careers": "Careers",
+    "partners": "Partners",
+    "contacts": "Contacts",
+    "history": "History",
+    "mission": "Mission",
+    "strategy": "Strategy",
+    "leadership": "Leadership",
+    "structure": "Structure",
+    "documents": "Documents",
+    "research": "R&D",
+    "commercialization": "Commercialization",
+    "transfer": "Technology transfer"
+  },
+  "hero": {
+    "badge": "Technology. Innovation. Future.",
+    "title_1": "From scientific research",
+    "title_2": "to industrial implementation",
+    "subtitle": "PolyTech Park — a space for science, engineering and technology business.",
+    "cta": "Learn more",
+    "secondary": "Our services"
+  },
+  "about": {
+    "label": "About",
+    "title": "We are building the future of technology today",
+    "text": "PolyTech Park is a technology park at Satbayev University, where science meets industry. For over 90 years the university has developed engineering sciences in close connection with the real economy, and the technopark brings research into practice — from work in its own laboratories to deploying solutions in the construction and industrial sectors.",
+    "more": "More about the company",
+    "factsTitle": "What defines us",
+    "sectionsTitle": "Explore the company",
+    "facts": {
+      "direction": {
+        "title": "Construction technology",
+        "desc": "The technopark's core focus"
+      },
+      "university": {
+        "title": "Satbayev University",
+        "desc": "A technopark at the country's leading technical university"
+      },
+      "transfer": {
+        "title": "Technology transfer",
+        "desc": "From scientific research to industrial deployment"
+      },
+      "research": {
+        "title": "Applied research",
+        "desc": "Work in our own laboratories for real business needs"
+      }
+    },
+    "menu": {
+      "history": "Company history",
+      "mission": "Mission",
+      "strategy": "Development strategy",
+      "leadership": "Leadership",
+      "structure": "Organizational structure",
+      "documents": "Corporate documents"
+    },
+    "menuDesc": {
+      "history": "How the technopark grew",
+      "mission": "Why we exist",
+      "strategy": "Where we are heading",
+      "leadership": "The management team",
+      "structure": "How the company is organized",
+      "documents": "Official documents"
+    },
+    "history": {
+      "title": "Company history",
+      "body": [
+        "PolyTechPark JSC was established as a platform for commercializing the scientific developments of Satbayev University and growing technology entrepreneurship in the construction and industrial sectors.",
+        "Over the years, the technopark has brought together researchers, engineers and industrial partners, delivering dozens of applied projects and building a modern laboratory base."
+      ]
+    },
+    "mission": {
+      "title": "Mission",
+      "lead": "To connect science and industry, turning research into technologies that work for the country's economy.",
+      "valuesTitle": "Our values",
+      "values": [
+        "Science and expertise",
+        "Partnership",
+        "Focus on results",
+        "Technology leadership"
+      ]
+    },
+    "strategy": {
+      "title": "Development strategy",
+      "body": [
+        "PolyTechPark's strategy is focused on building a full cycle — from a scientific idea to industrial implementation and bringing the product to market."
+      ],
+      "goalsTitle": "Key directions",
+      "goals": [
+        "Developing applied research and R&D",
+        "Commercializing technologies and supporting startups",
+        "Transferring technology to industrial partners",
+        "Expanding the laboratory and engineering infrastructure"
+      ]
+    },
+    "leadership": {
+      "title": "Leadership",
+      "intro": "The team that drives the development of the technopark."
+    },
+    "structure": {
+      "title": "Organizational structure",
+      "body": [
+        "The company is built on a functional principle: the research division, commercialization, technology transfer and administrative support work as a single system."
+      ],
+      "unitsTitle": "Divisions",
+      "units": [
+        "Research department",
+        "Commercialization department",
+        "Technology transfer department",
+        "Administrative department"
+      ]
+    },
+    "documents": {
+      "title": "Corporate documents",
+      "intro": "The company's official documents are available to view and download.",
+      "download": "Download",
+      "noFile": "The file will be added soon"
+    }
+  },
+  "directions": {
+    "label": "Directions",
+    "title": "Our directions",
+    "more": "Learn more",
+    "items": {
+      "research": {
+        "title": "Scientific research and R&D",
+        "desc": "We conduct applied research and develop innovative solutions."
+      },
+      "commercialization": {
+        "title": "Technology commercialization",
+        "desc": "We bring scientific developments to market and create competitive products."
+      },
+      "transfer": {
+        "title": "Technology transfer",
+        "desc": "We transfer technology and expertise to business and industrial partners."
+      },
+      "innovation": {
+        "title": "Building innovative enterprises",
+        "desc": "We support startups and the growth of new technology companies."
+      }
+    }
+  },
+  "projects": {
+    "label": "Scientific projects",
+    "title": "Our projects",
+    "all": "All projects",
+    "more": "Learn more",
+    "categories": {
+      "industry": "Industry",
+      "ecology": "Ecology",
+      "construction": "Construction"
+    }
+  },
+  "news": {
+    "label": "News",
+    "title": "Latest news",
+    "all": "All news"
+  },
+  "partners": {
+    "label": "Partners",
+    "title": "Our partners",
+    "all": "All partners"
+  },
+  "services": {
+    "label": "Services",
+    "title": "Services",
+    "intro": "A full support cycle for technology projects — from scientific research to implementation and market launch.",
+    "details": "More about the service",
+    "all": "All services",
+    "requestCta": "Discuss your task"
+  },
+  "careers": {
+    "label": "Careers",
+    "title": "Careers and internships",
+    "intro": "Join the PolyTechPark team — we develop technology together.",
+    "department": "Department",
+    "responsibilities": "Description",
+    "requirements": "Requirements",
+    "apply": "Apply",
+    "empty": "There are no open positions right now. Please check back later."
+  },
+  "contacts": {
+    "label": "Contacts",
+    "title": "Contacts",
+    "heading": "Get in touch",
+    "subtitle": "Ready to discuss cooperation, a project or a partnership — write to us.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "writeUs": "Write to us",
+    "onMap": "On the map",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "phone": "Phone (optional)",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending…",
+      "success": "Thank you! Your message has been sent.",
+      "error": "Could not send. Please try again later.",
+      "required": "Please fill in the required fields."
+    }
+  },
+  "common": {
+    "readMore": "Learn more",
+    "backToList": "Back to list",
+    "loading": "Loading...",
+    "inDevelopment": "Section under development",
+    "empty": "No data yet"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "description": "A company created to bring science and industry together and bring innovative products to market.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "contacts": "Contacts",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "address_part1": "Almaty, Bostandyk",
+    "address_part2": "district, Satbayev St, 22/5"
+  }
+}
