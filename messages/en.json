@@ -11,7 +11,6 @@
     "history": "History",
     "strategy": "Strategy",
     "leadership": "Leadership",
-    "structure": "Structure",
     "documents": "Documents",
     "research": "R&D",
     "commercialization": "Commercialization",
@@ -56,14 +55,12 @@
       "history": "About PolyTechPark",
       "strategy": "Development strategy",
       "leadership": "Leadership",
-      "structure": "Organizational structure",
       "documents": "Corporate documents"
     },
     "menuDesc": {
       "history": "How the technopark grew",
       "strategy": "Where we are heading",
       "leadership": "The management team",
-      "structure": "How the company is organized",
       "documents": "Official documents"
     },
     "history": {
@@ -89,19 +86,6 @@
     "leadership": {
       "title": "Leadership",
       "intro": "The team that drives the development of the technopark."
-    },
-    "structure": {
-      "title": "Organizational structure",
-      "body": [
-        "The company is built on a functional principle: the research division, commercialization, technology transfer and administrative support work as a single system."
-      ],
-      "unitsTitle": "Divisions",
-      "units": [
-        "Research department",
-        "Commercialization department",
-        "Technology transfer department",
-        "Administrative department"
-      ]
     },
     "documents": {
       "title": "Corporate documents",
