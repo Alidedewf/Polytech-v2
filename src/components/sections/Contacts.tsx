@@ -50,7 +50,7 @@ export default async function Contacts() {
           </div>
 
           <MapEmbed
-            query={address}
+            query={contact?.mapQuery ?? address}
             lat={contact?.mapLatitude}
             lng={contact?.mapLongitude}
             title={t('onMap')}

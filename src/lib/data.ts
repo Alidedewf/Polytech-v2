@@ -89,6 +89,8 @@ export type ContactInfo = {
   address: string;
   phone: string;
   email: string;
+  /** Запрос для карты — единый для всех локалей, иначе геокодер уводит точку. */
+  mapQuery?: string;
   mapLatitude?: number | null;
   mapLongitude?: number | null;
 };

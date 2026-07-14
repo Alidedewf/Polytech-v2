@@ -44,7 +44,7 @@ export default async function ContactsPage({
 
           {/* Карта */}
           <MapEmbed
-            query={address}
+            query={contact?.mapQuery ?? address}
             lat={contact?.mapLatitude}
             lng={contact?.mapLongitude}
             title={t('onMap')}

@@ -237,26 +237,22 @@ const CONTACT_ADDRESS: Record<Locale, string> = {
   en: 'Almaty, Bostandyk district, Satbayev St, 22/5',
 };
 
+/**
+ * Запрос к карте одинаковый на всех языках: переведённые варианты адреса
+ * геокодятся по-разному и уводят метку в другое место.
+ */
+const MAP_QUERY = 'Satbayev University, ул. Сатпаева 22, Алматы, Казахстан';
+
+const CONTACT_BASE = {
+  phone: '+7 7172 95 43 43',
+  email: 'info@stsolutions.kz',
+  mapQuery: MAP_QUERY,
+  mapLatitude: 43.2389,
+  mapLongitude: 76.9302,
+};
+
 export const CONTACT: Record<Locale, ContactInfo> = {
-  ru: {
-    address: CONTACT_ADDRESS.ru,
-    phone: '+7 7172 95 43 43',
-    email: 'info@stsolutions.kz',
-    mapLatitude: 43.2389,
-    mapLongitude: 76.9302,
-  },
-  kk: {
-    address: CONTACT_ADDRESS.kk,
-    phone: '+7 7172 95 43 43',
-    email: 'info@stsolutions.kz',
-    mapLatitude: 43.2389,
-    mapLongitude: 76.9302,
-  },
-  en: {
-    address: CONTACT_ADDRESS.en,
-    phone: '+7 7172 95 43 43',
-    email: 'info@stsolutions.kz',
-    mapLatitude: 43.2389,
-    mapLongitude: 76.9302,
-  },
+  ru: { ...CONTACT_BASE, address: CONTACT_ADDRESS.ru },
+  kk: { ...CONTACT_BASE, address: CONTACT_ADDRESS.kk },
+  en: { ...CONTACT_BASE, address: CONTACT_ADDRESS.en },
 };

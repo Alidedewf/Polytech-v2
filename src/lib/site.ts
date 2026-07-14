@@ -12,16 +12,7 @@ export const DEFAULT_LOCALE: Locale = 'ru';
 export const STATIC_PATHS = [
   '',
   '/about',
-  '/about/history',
-  '/about/mission',
-  '/about/strategy',
-  '/about/leadership',
-  '/about/structure',
-  '/about/documents',
   '/services',
-  '/services/research',
-  '/services/commercialization',
-  '/services/transfer',
   '/partners',
   '/contacts',
 ];

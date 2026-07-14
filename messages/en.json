@@ -9,7 +9,6 @@
     "partners": "Partners",
     "contacts": "Contacts",
     "history": "History",
-    "mission": "Mission",
     "strategy": "Strategy",
     "leadership": "Leadership",
     "structure": "Structure",
@@ -31,6 +30,8 @@
     "title": "We are building the future of technology today",
     "text": "PolyTech Park is a technology park at Satbayev University, where science meets industry. For over 90 years the university has developed engineering sciences in close connection with the real economy, and the technopark brings research into practice — from work in its own laboratories to deploying solutions in the construction and industrial sectors.",
     "more": "More about the company",
+    "pageTitle": "About PolyTechPark",
+    "pageText": "PolyTechPark JSC is a subsidiary of Satbayev University, established to commercialize scientific developments and carry out R&D for industry.",
     "factsTitle": "What defines us",
     "sectionsTitle": "Explore the company",
     "facts": {
@@ -52,8 +53,7 @@
       }
     },
     "menu": {
-      "history": "Company history",
-      "mission": "Mission",
+      "history": "About PolyTechPark",
       "strategy": "Development strategy",
       "leadership": "Leadership",
       "structure": "Organizational structure",
@@ -61,7 +61,6 @@
     },
     "menuDesc": {
       "history": "How the technopark grew",
-      "mission": "Why we exist",
       "strategy": "Where we are heading",
       "leadership": "The management team",
       "structure": "How the company is organized",
@@ -72,17 +71,6 @@
       "body": [
         "PolyTechPark JSC was established as a platform for commercializing the scientific developments of Satbayev University and growing technology entrepreneurship in the construction and industrial sectors.",
         "Over the years, the technopark has brought together researchers, engineers and industrial partners, delivering dozens of applied projects and building a modern laboratory base."
-      ]
-    },
-    "mission": {
-      "title": "Mission",
-      "lead": "To connect science and industry, turning research into technologies that work for the country's economy.",
-      "valuesTitle": "Our values",
-      "values": [
-        "Science and expertise",
-        "Partnership",
-        "Focus on results",
-        "Technology leadership"
       ]
     },
     "strategy": {
@@ -172,7 +160,12 @@
     "intro": "A full support cycle for technology projects — from scientific research to implementation and market launch.",
     "details": "More about the service",
     "all": "All services",
-    "requestCta": "Discuss your task"
+    "requestCta": "Discuss your task",
+    "cta": {
+      "title": "Have a task or an idea?",
+      "text": "Get in touch — we'll help you find the best solution.",
+      "button": "Contact us"
+    }
   },
   "careers": {
     "label": "Careers",

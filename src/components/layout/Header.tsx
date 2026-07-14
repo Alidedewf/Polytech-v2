@@ -17,27 +17,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks: NavLink[] = [
-    {
-      href: '/about',
-      label: t('about'),
-      children: [
-        { href: '/about/history', label: t('history') },
-        { href: '/about/mission', label: t('mission') },
-        { href: '/about/strategy', label: t('strategy') },
-        { href: '/about/leadership', label: t('leadership') },
-        { href: '/about/structure', label: t('structure') },
-        { href: '/about/documents', label: t('documents') },
-      ],
-    },
-    {
-      href: '/services',
-      label: t('services'),
-      children: [
-        { href: '/services/research', label: t('research') },
-        { href: '/services/commercialization', label: t('commercialization') },
-        { href: '/services/transfer', label: t('transfer') },
-      ],
-    },
+    { href: '/about', label: t('about') },
+    { href: '/services', label: t('services') },
     { href: '/contacts', label: t('contacts') },
   ];
 
