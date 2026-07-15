@@ -1,0 +1,12 @@
+# Статический сайт (Next.js export) на Apache/Plesk
+
+RewriteEngine On
+
+# Добавлять завершающий слэш, когда существует соответствующая папка
+# (маршруты экспортированы как /путь/index.html)
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [L,R=301]
+
+# Своя страница 404
+ErrorDocument 404 /404.html

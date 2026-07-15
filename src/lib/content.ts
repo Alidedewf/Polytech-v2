@@ -4,15 +4,35 @@
  * не приходилось менять.
  */
 
-import type { Service, Partner, Leader, DocItem, ContactInfo } from './data';
+import type {
+  Service,
+  Partner,
+  Leader,
+  DocItem,
+  ContactInfo,
+  Project,
+} from './data';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from './site';
-import { SERVICES, PARTNERS, LEADERS, DOCUMENTS, CONTACT } from './content-static';
+import {
+  SERVICES,
+  PARTNERS,
+  LEADERS,
+  DOCUMENTS,
+  CONTACT,
+  PROJECTS,
+} from './content-static';
 
 /** Приводит произвольную строку локали к поддерживаемой (fallback — ru). */
 function asLocale(locale: string): Locale {
   return (LOCALES as readonly string[]).includes(locale)
     ? (locale as Locale)
     : DEFAULT_LOCALE;
+}
+
+/* --------------------------------- Проекты -------------------------------- */
+
+export async function getProjects(locale: string): Promise<Project[]> {
+  return PROJECTS[asLocale(locale)];
 }
 
 /* -------------------------------- Партнёры -------------------------------- */

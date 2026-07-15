@@ -6,8 +6,28 @@
  * Правки контента делаются здесь и требуют пересборки.
  */
 
-import type { Service, Partner, Leader, DocItem, ContactInfo } from './data';
+import type {
+  Service,
+  Partner,
+  Leader,
+  DocItem,
+  ContactInfo,
+  Project,
+} from './data';
 import type { Locale } from './site';
+
+/* --------------------------------- Проекты -------------------------------- */
+/**
+ * Проекты. Пока пусто — на странице показывается плейсхолдер.
+ * Реальные проекты добавляются сюда по образцу:
+ *   { slug, category: 'construction'|'industry'|'ecology',
+ *     status: 'active'|'completed', title, description }
+ */
+export const PROJECTS: Record<Locale, Project[]> = {
+  ru: [],
+  kk: [],
+  en: [],
+};
 
 /* --------------------------------- Услуги --------------------------------- */
 

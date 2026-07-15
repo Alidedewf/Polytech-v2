@@ -35,10 +35,14 @@ export const FACTS: { key: FactKey }[] = [
 
 export type ProjectCategory = 'industry' | 'ecology' | 'construction';
 
+/** Статус проекта: активный (в работе) или завершённый. */
+export type ProjectStatus = 'active' | 'completed';
+
 export type Project = {
   slug: string;
   title: string;
   category: ProjectCategory;
+  status: ProjectStatus;
   description: string;
   coverUrl?: string | null;
 };

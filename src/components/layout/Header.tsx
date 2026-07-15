@@ -12,6 +12,7 @@ type NavLink = { href: string; label: string; children?: NavChild[] };
 
 export default function Header() {
   const t = useTranslations('nav');
+  const ta = useTranslations('about');
   const locale = useLocale();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,12 +22,13 @@ export default function Header() {
       href: '/about',
       label: t('about'),
       children: [
-        { href: '/about/history', label: t('history') },
-        { href: '/about/strategy', label: t('strategy') },
-        { href: '/about/leadership', label: t('leadership') },
-        { href: '/about/documents', label: t('documents') },
+        { href: '/about/management', label: ta('menu.management') },
+        { href: '/about/anticorruption', label: ta('menu.anticorruption') },
+        { href: '/about/documents', label: ta('menu.documents') },
+        { href: '/about/vacancies', label: ta('menu.vacancies') },
       ],
     },
+    { href: '/projects', label: t('projects') },
     { href: '/services', label: t('services') },
     { href: '/contacts', label: t('contacts') },
   ];
@@ -65,7 +67,7 @@ export default function Header() {
 
                 {link.children ? (
                   <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-                    <div className="flex w-64 flex-col rounded-xl border border-brand-line bg-white p-2 shadow-xl shadow-brand-blue/5">
+                    <div className="flex w-80 flex-col rounded-xl border border-brand-line bg-white p-2 shadow-xl shadow-brand-blue/5">
                       {link.children.map((c) => (
                         <Link
                           key={c.href}
