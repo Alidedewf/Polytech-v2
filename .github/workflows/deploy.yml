@@ -27,17 +27,22 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://polytechpark.kz
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # Обычный FTP: FTPS на этом сервере рвёт канал данных (ECONNRESET)
-          protocol: ftp
-          port: 21
-          timeout: 60000
-          # Что заливаем — собранная статика
-          local-dir: ./out/
-          # Куда заливаем — корень сайта (FTP-аккаунт привязан к папке /polytechpark.kz)
-          server-dir: ./
+      - name: Deploy via FTP (lftp)
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y lftp
+          lftp -c "
+            set cmd:fail-exit yes;
+            set ftp:ssl-allow no;
+            set ftp:passive-mode on;
+            set ftp:prefer-epsv no;
+            set net:connection-limit 1;
+            set net:max-retries 3;
+            set net:timeout 25;
+            set net:persist-retries 3;
+            open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_HOST';
+            mirror --reverse --delete --verbose --parallel=1 ./out/ ./ ;
+          "
