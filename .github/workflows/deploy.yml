@@ -1,0 +1,42 @@
+name: Build & Deploy to hosting
+
+# Запускается при каждом пуше в main + вручную из вкладки Actions
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://polytechpark.kz
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Шифрованный FTP (пароль не идёт открытым текстом)
+          protocol: ftps
+          port: 21
+          # Что заливаем — собранная статика
+          local-dir: ./out/
+          # Куда заливаем — корень сайта (FTP-аккаунт привязан к папке /polytechpark.kz)
+          server-dir: ./

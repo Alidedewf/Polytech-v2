@@ -76,8 +76,38 @@
     "board": {
       "title": "Board of Directors",
       "body": [
-        "The Board of Directors is the governing body that sets the strategic direction of the Company and provides overall guidance of its activities between general meetings of shareholders.",
-        "The composition of the Board of Directors, its powers and rules of procedure will be published in this section."
+        "The Board of Directors is the governing body that sets the strategic direction of the Company and provides overall guidance of its activities between general meetings of shareholders."
+      ],
+      "membersTitle": "Members of the Board of Directors",
+      "people": [
+        {
+          "name": "Uteshev Nurlan Suleimenovich",
+          "position": "Chairman of the Board of Directors; Deputy Chairman of the Federation of Trade Unions of the Republic of Kazakhstan; independent director"
+        },
+        {
+          "name": "Shaimerdenov Zhomart Maratovich",
+          "position": "Head of TB Technologies LLP"
+        },
+        {
+          "name": "Aitzhanova Dinara Nurzhanovna",
+          "position": "Expert of the International Labour Organization; IPMA project manager; independent director"
+        },
+        {
+          "name": "Kuldeev Yerzhan Itemenovich",
+          "position": "Member of the Management Board — Vice-Rector for Science and Corporate Development, Satbayev University"
+        },
+        {
+          "name": "Madieva Dana",
+          "position": "Head of the MTsRiAM, Satbayev University"
+        },
+        {
+          "name": "Dzhamanova Azhar Bolatovna",
+          "position": "Senior Advisor, Aviation Administration of Kazakhstan JSC; independent director"
+        },
+        {
+          "name": "Zhakipbekov Zhandos Nurlanovich",
+          "position": "Acting Chairman of the Management Board of PolyTechPark JSC"
+        }
       ]
     },
     "committees": {
@@ -92,11 +122,15 @@
       "body": [
         "The Management Board is the collegial executive body of the Company, responsible for day-to-day management and for implementing the decisions of the Board of Directors and the general meeting of shareholders."
       ],
-      "membersTitle": "Members",
+      "membersTitle": "Members of the Management Board",
       "people": [
         {
           "name": "Zhakipbekov Zhandos Nurlanovich",
-          "position": "Acting Chairman of the Management Board of PolyTechPark JSC"
+          "position": "Acting Chairman of the Management Board, member of the Management Board"
+        },
+        {
+          "name": "Netaev Daulet Zholdybaevich",
+          "position": "Deputy Chairman of the Management Board, member of the Management Board"
         }
       ]
     },

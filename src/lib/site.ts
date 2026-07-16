@@ -12,6 +12,7 @@ export const DEFAULT_LOCALE: Locale = 'ru';
 export const STATIC_PATHS = [
   '',
   '/about',
+  '/about/board',
   '/about/management',
   '/about/anticorruption',
   '/about/documents',

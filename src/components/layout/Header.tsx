@@ -22,6 +22,7 @@ export default function Header() {
       href: '/about',
       label: t('about'),
       children: [
+        { href: '/about/board', label: ta('menu.board') },
         { href: '/about/management', label: ta('menu.management') },
         { href: '/about/anticorruption', label: ta('menu.anticorruption') },
         { href: '/about/documents', label: ta('menu.documents') },
