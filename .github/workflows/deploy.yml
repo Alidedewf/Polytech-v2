@@ -33,9 +33,10 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Шифрованный FTP (пароль не идёт открытым текстом)
-          protocol: ftps
+          # Обычный FTP: FTPS на этом сервере рвёт канал данных (ECONNRESET)
+          protocol: ftp
           port: 21
+          timeout: 60000
           # Что заливаем — собранная статика
           local-dir: ./out/
           # Куда заливаем — корень сайта (FTP-аккаунт привязан к папке /polytechpark.kz)
