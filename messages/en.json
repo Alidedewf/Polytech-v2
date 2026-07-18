@@ -155,10 +155,33 @@
       "cta": "Write to us"
     },
     "documents": {
-      "title": "Corporate documents",
+      "title": "Documents",
       "intro": "The company's official documents are available to view and download.",
       "download": "Download",
-      "noFile": "The file will be added soon"
+      "noFile": "The file will be added soon",
+      "groups": [
+        {
+          "title": "Founding documents",
+          "items": [
+            { "title": "Charter" }
+          ]
+        },
+        {
+          "title": "Permits and certificates",
+          "items": [
+            { "title": "Accreditation as a subject of scientific and (or) scientific-technical activity" },
+            { "title": "Certificate of conformity ST RK ISO 9001-2016" }
+          ]
+        },
+        {
+          "title": "Financial statements",
+          "items": [
+            { "title": "2025" },
+            { "title": "2024" },
+            { "title": "2023" }
+          ]
+        }
+      ]
     }
   },
   "directions": {
