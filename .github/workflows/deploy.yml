@@ -14,6 +14,8 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # Жёсткий лимит — никаких многочасовых зависаний
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,22 +34,21 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://polytechpark.kz
 
-      - name: Deploy via FTP (lftp)
+      - name: Deploy via SFTP (lftp)
         env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          DEPLOY_HOST: ${{ secrets.FTP_HOST }}
+          DEPLOY_USER: ${{ secrets.SSH_USERNAME }}
+          DEPLOY_PASS: ${{ secrets.SSH_PASSWORD }}
         run: |
           sudo apt-get update -qq && sudo apt-get install -y lftp
           lftp -c "
             set cmd:fail-exit yes;
-            set ftp:ssl-allow no;
-            set ftp:passive-mode on;
-            set ftp:prefer-epsv no;
-            set net:connection-limit 1;
-            set net:max-retries 3;
-            set net:timeout 25;
-            set net:persist-retries 3;
-            open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_HOST';
-            mirror --reverse --delete --ignore-time --no-perms --verbose --parallel=1 ./out/ ./ ;
+            set sftp:auto-confirm yes;
+            set net:max-retries 2;
+            set net:timeout 20;
+            open -u '$DEPLOY_USER','$DEPLOY_PASS' sftp://$DEPLOY_HOST:22;
+            echo '--- где мы после входа (для проверки пути) ---';
+            pwd;
+            cls -l;
+            mirror --reverse --delete --ignore-time --no-perms --verbose ./out/ /polytechpark.kz/ ;
           "
