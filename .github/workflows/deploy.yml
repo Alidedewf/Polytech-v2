@@ -6,6 +6,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Новый пуш отменяет предыдущий незавершённый деплой (без наложений)
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -44,5 +49,5 @@ jobs:
             set net:timeout 25;
             set net:persist-retries 3;
             open -u '$FTP_USERNAME','$FTP_PASSWORD' '$FTP_HOST';
-            mirror --reverse --delete --verbose --parallel=1 ./out/ ./ ;
+            mirror --reverse --delete --ignore-time --no-perms --verbose --parallel=1 ./out/ ./ ;
           "
