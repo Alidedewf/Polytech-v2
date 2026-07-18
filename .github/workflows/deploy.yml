@@ -1,4 +1,4 @@
-name: Build & Deploy to hosting
+name: Build & Publish (deploy branch)
 
 # Запускается при каждом пуше в main + вручную из вкладки Actions
 on:
@@ -6,15 +6,18 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Новый пуш отменяет предыдущий незавершённый деплой (без наложений)
+# Новый пуш отменяет предыдущий незавершённый прогон
 concurrency:
-  group: deploy
+  group: publish
   cancel-in-progress: true
 
+# Нужно право записи, чтобы публиковать собранную статику в ветку deploy
+permissions:
+  contents: write
+
 jobs:
-  build-and-deploy:
+  build-and-publish:
     runs-on: ubuntu-latest
-    # Жёсткий лимит — никаких многочасовых зависаний
     timeout-minutes: 15
     steps:
       - name: Checkout
@@ -34,21 +37,14 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://polytechpark.kz
 
-      - name: Deploy via SFTP (lftp)
-        env:
-          DEPLOY_HOST: ${{ secrets.FTP_HOST }}
-          DEPLOY_USER: ${{ secrets.SSH_USERNAME }}
-          DEPLOY_PASS: ${{ secrets.SSH_PASSWORD }}
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y lftp
-          lftp -c "
-            set cmd:fail-exit yes;
-            set sftp:auto-confirm yes;
-            set net:max-retries 2;
-            set net:timeout 20;
-            open -u '$DEPLOY_USER','$DEPLOY_PASS' sftp://$DEPLOY_HOST:22;
-            echo '--- где мы после входа (для проверки пути) ---';
-            pwd;
-            cls -l;
-            mirror --reverse --delete --ignore-time --no-perms --verbose ./out/ /polytechpark.kz/ ;
-          "
+      # Публикуем ТОЛЬКО собранную статику (папку out) в ветку deploy.
+      # Оттуда её забирает Plesk Git.
+      - name: Publish to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: deploy
+          force_orphan: true
+          enable_jekyll: true
+          commit_message: "deploy: ${{ github.sha }}"
