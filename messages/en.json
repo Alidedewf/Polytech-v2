@@ -82,23 +82,28 @@
       "people": [
         {
           "name": "Uteshev Nurlan Suleimenovich",
-          "position": "Chairman of the Board of Directors; Deputy Chairman of the Federation of Trade Unions of the Republic of Kazakhstan; independent director"
+          "position": "Chairman of the Board of Directors; Deputy Chairman of the Federation of Trade Unions of the Republic of Kazakhstan; independent director",
+          "photo": "/team/uteshev.jpg"
         },
         {
           "name": "Shaimerdenov Zhomart Maratovich",
-          "position": "Head of TB Technologies LLP"
+          "position": "Head of TB Technologies LLP",
+          "photo": "/team/shaimerdenov.jpg"
         },
         {
           "name": "Aitzhanova Dinara Nurzhanovna",
-          "position": "Expert of the International Labour Organization; IPMA project manager; independent director"
+          "position": "Expert of the International Labour Organization; IPMA project manager; independent director",
+          "photo": "/team/aitzhanova.jpg"
         },
         {
           "name": "Kuldeev Yerzhan Itemenovich",
-          "position": "Member of the Management Board — Vice-Rector for Science and Corporate Development, Satbayev University"
+          "position": "Member of the Management Board — Vice-Rector for Science and Corporate Development, Satbayev University",
+          "photo": "/team/kuldeev.png"
         },
         {
           "name": "Madieva Dana",
-          "position": "Head of the MTsRiAM, Satbayev University"
+          "position": "Head of the MTsRiAM, Satbayev University",
+          "photo": "/team/madieva.jpg"
         },
         {
           "name": "Dzhamanova Azhar Bolatovna",
@@ -130,7 +135,8 @@
         },
         {
           "name": "Netaev Daulet Zholdybaevich",
-          "position": "Deputy Chairman of the Management Board, member of the Management Board"
+          "position": "Deputy Chairman of the Management Board, member of the Management Board",
+          "photo": "/team/netaev.jpg"
         }
       ]
     },
@@ -163,22 +169,37 @@
         {
           "title": "Founding documents",
           "items": [
-            { "title": "Charter" }
+            {
+              "title": "Charter",
+              "file": "/docs/ustav.pdf"
+            }
           ]
         },
         {
           "title": "Permits and certificates",
           "items": [
-            { "title": "Accreditation as a subject of scientific and (or) scientific-technical activity" },
-            { "title": "Certificate of conformity ST RK ISO 9001-2016" }
+            {
+              "title": "Accreditation as a subject of scientific and (or) scientific-technical activity",
+              "file": "/docs/akkreditaciya.pdf"
+            },
+            {
+              "title": "Certificate of conformity ST RK ISO 9001-2016",
+              "file": "/docs/sertifikat-iso-9001.pdf"
+            }
           ]
         },
         {
           "title": "Financial statements",
           "items": [
-            { "title": "2025" },
-            { "title": "2024" },
-            { "title": "2023" }
+            {
+              "title": "2025"
+            },
+            {
+              "title": "2024"
+            },
+            {
+              "title": "2023"
+            }
           ]
         }
       ]
