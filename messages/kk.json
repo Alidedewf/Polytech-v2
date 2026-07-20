@@ -163,7 +163,7 @@
     "documents": {
       "title": "Құжаттар",
       "intro": "Компанияның ресми құжаттарын танысуға және жүктеуге болады.",
-      "download": "Жүктеу",
+      "download": "Қарау",
       "noFile": "Файл жақын арада қосылады",
       "groups": [
         {
@@ -192,13 +192,16 @@
           "title": "Қаржылық есептілік",
           "items": [
             {
-              "title": "2025"
+              "title": "2025",
+              "file": "/docs/otchet-2025.pdf"
             },
             {
-              "title": "2024"
+              "title": "2024",
+              "file": "/docs/otchet-2024.pdf"
             },
             {
-              "title": "2023"
+              "title": "2023",
+              "file": "/docs/otchet-2023.pdf"
             }
           ]
         }
