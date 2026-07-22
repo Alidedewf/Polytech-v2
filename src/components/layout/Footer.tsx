@@ -16,8 +16,7 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { href: '/terms', label: tFooter('terms') },
-    { href: '/privacy', label: tFooter('privacy') },
+    { href: '/about/documents', label: tNav('documents') },
   ];
 
   const currentYear = new Date().getFullYear();
