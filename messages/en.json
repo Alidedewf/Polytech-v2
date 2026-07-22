@@ -322,5 +322,24 @@
     "cookies": "Cookies",
     "address_part1": "Almaty, Bostandyk",
     "address_part2": "district, Satbayev St, 22/5"
+  },
+  "accessibility": {
+    "toggle": "Accessibility mode",
+    "panelTitle": "Accessibility settings",
+    "fontSize": "Font size",
+    "fontNormal": "Normal",
+    "fontLarge": "Large",
+    "fontXlarge": "Extra large",
+    "colorScheme": "Color scheme",
+    "colorNormal": "Normal",
+    "colorBw": "Black & white",
+    "colorDark": "Dark",
+    "colorBlue": "Blue",
+    "letterSpacing": "Letter spacing",
+    "spacingNormal": "Normal",
+    "spacingMedium": "Medium",
+    "spacingLarge": "Large",
+    "hideImages": "Hide images",
+    "reset": "Reset settings"
   }
 }

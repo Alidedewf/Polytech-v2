@@ -322,5 +322,24 @@
     "cookies": "Cookies",
     "address_part1": "Алматы қ., Бостандық",
     "address_part2": "ауданы, Сәтбаев к-сі, 22/5"
+  },
+  "accessibility": {
+    "toggle": "Нашар көретіндер нұсқасы",
+    "panelTitle": "Қолжетімділік параметрлері",
+    "fontSize": "Қаріп өлшемі",
+    "fontNormal": "Қалыпты",
+    "fontLarge": "Үлкен",
+    "fontXlarge": "Өте үлкен",
+    "colorScheme": "Түс схемасы",
+    "colorNormal": "Қалыпты",
+    "colorBw": "Ақ-қара",
+    "colorDark": "Қараңғы",
+    "colorBlue": "Көк",
+    "letterSpacing": "Әріп аралығы",
+    "spacingNormal": "Қалыпты",
+    "spacingMedium": "Орташа",
+    "spacingLarge": "Үлкен",
+    "hideImages": "Суреттерді жасыру",
+    "reset": "Параметрлерді қалпына келтіру"
   }
 }

@@ -9,6 +9,7 @@ import '../globals.css';
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { AccessibilityProvider } from '@/components/accessibility/AccessibilityContext';
 import { SITE_URL, languageAlternates } from '@/lib/site';
 
 const montserrat = Montserrat({
@@ -98,9 +99,11 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex flex-1 flex-col">{children}</main>
-          <Footer />
+          <AccessibilityProvider>
+            <Header />
+            <main className="flex flex-1 flex-col">{children}</main>
+            <Footer />
+          </AccessibilityProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -322,5 +322,24 @@
     "cookies": "Cookies",
     "address_part1": "г. Алматы, Бостандыкский",
     "address_part2": "район, ул. Сатпаева, 22/5"
+  },
+  "accessibility": {
+    "toggle": "Версия для слабовидящих",
+    "panelTitle": "Настройки доступности",
+    "fontSize": "Размер шрифта",
+    "fontNormal": "Обычный",
+    "fontLarge": "Крупный",
+    "fontXlarge": "Очень крупный",
+    "colorScheme": "Цветовая схема",
+    "colorNormal": "Обычная",
+    "colorBw": "Чёрно-белая",
+    "colorDark": "Тёмная",
+    "colorBlue": "Синяя",
+    "letterSpacing": "Межбуквенный интервал",
+    "spacingNormal": "Обычный",
+    "spacingMedium": "Увеличенный",
+    "spacingLarge": "Большой",
+    "hideImages": "Отключить изображения",
+    "reset": "Сбросить настройки"
   }
 }

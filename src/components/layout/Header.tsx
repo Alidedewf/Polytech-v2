@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
 import Image from 'next/image';
+import AccessibilityPanel from '@/components/accessibility/AccessibilityPanel';
 
 const LOCALES = ['ru', 'kk', 'en'] as const;
 
@@ -91,6 +92,11 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* Панель доступности (десктоп) */}
+          <div className="hidden md:block">
+            <AccessibilityPanel />
+          </div>
+
           {/* Переключатель языков (десктоп) */}
           <div className="relative hidden md:block">
             <div className="group">
@@ -125,6 +131,11 @@ export default function Header() {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* Панель доступности (мобильные) */}
+          <div className="md:hidden">
+            <AccessibilityPanel />
           </div>
 
           {/* Кнопка-гамбургер (мобильные) */}
