@@ -61,6 +61,7 @@ export function AccessibilityProvider({ children }: { children: ReactNode }) {
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<AccessibilityState>;
         const merged = { ...DEFAULTS, ...parsed };
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- одноразовая гидрация из localStorage на маунте
         setState(merged);
         applyToDOM(merged);
       }

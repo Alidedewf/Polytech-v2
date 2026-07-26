@@ -2,6 +2,10 @@
 
 # dependencies
 /node_modules
+/server/node_modules
+
+# backend runtime data (хранилище проектов создаётся на сервере)
+/server/data
 /.pnp
 .pnp.*
 .yarn/*
@@ -39,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# тяжёлые PDF грузятся напрямую на сервер, не через git
+/public/docs/*.pdf

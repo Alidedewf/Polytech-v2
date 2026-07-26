@@ -29,10 +29,61 @@ function asLocale(locale: string): Locale {
     : DEFAULT_LOCALE;
 }
 
-/* --------------------------------- Проекты -------------------------------- */
+/** Сырой проект из API (все поля опциональны — валидируем при маппинге). */
+type ApiProject = {
+  id?: string;
+  slug?: string;
+  title?: string;
+  titleRu?: string;
+  titleKk?: string;
+  titleEn?: string;
+  description?: string;
+  descRu?: string;
+  descKk?: string;
+  descEn?: string;
+  category?: Project['category'];
+  status?: Project['status'];
+  imageUrl?: string | null;
+};
 
 export async function getProjects(locale: string): Promise<Project[]> {
-  return PROJECTS[asLocale(locale)];
+  const loc = asLocale(locale);
+  const API_URL =
+    process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+  try {
+    // force-cache: запрос выполняется на этапе сборки и «запекается» в статику
+    const res = await fetch(`${API_URL}/projects`, { cache: 'force-cache' });
+    if (res.ok) {
+      const data: unknown = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        return (data as ApiProject[]).map((item) => {
+          const title =
+            (loc === 'kk' && item.titleKk) ||
+            (loc === 'en' && item.titleEn) ||
+            item.titleRu ||
+            item.title ||
+            '';
+          const description =
+            (loc === 'kk' && item.descKk) ||
+            (loc === 'en' && item.descEn) ||
+            item.descRu ||
+            item.description ||
+            '';
+          return {
+            slug: item.slug || item.id || '',
+            title,
+            description,
+            category: item.category || 'industry',
+            status: item.status || 'active',
+            coverUrl: item.imageUrl || null,
+          };
+        });
+      }
+    }
+  } catch (e) {
+    console.error('Ошибка загрузки проектов с API:', e);
+  }
+  return PROJECTS[loc];
 }
 
 /* -------------------------------- Партнёры -------------------------------- */
