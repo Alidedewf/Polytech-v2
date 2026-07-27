@@ -36,6 +36,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://polytechpark.kz
+          NEXT_PUBLIC_API_URL: https://api.polytechpark.kz/api
 
       # Публикуем ТОЛЬКО собранную статику (папку out) в ветку deploy.
       # Оттуда её забирает Plesk Git.
