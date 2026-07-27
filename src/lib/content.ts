@@ -221,12 +221,29 @@ const DOC_GROUP_LABELS: Record<string, Record<Locale, string>> = {
   },
 };
 
+/** Документы одной категории (например, 'anticorruption') — плоским списком. */
+export async function getDocumentsByGroup(
+  locale: string,
+  group: string,
+): Promise<{ title: string; file?: string }[]> {
+  const loc = asLocale(locale);
+  const items = await fetchCollection('documents');
+  return items
+    .filter((d) => (d.group as string) === group)
+    .map((d) => ({
+      title: pick(d, 'title', loc),
+      file: (d.file as string) || undefined,
+    }));
+}
+
 /** Группирует плоский список документов по ключу group в порядке DOC_GROUP_ORDER. */
 export async function getDocumentGroups(
   locale: string,
 ): Promise<DocGroupView[]> {
   const loc = asLocale(locale);
-  const items = await fetchCollection('documents');
+  const all = await fetchCollection('documents');
+  // Антикоррупционные показываются на своей странице (/about/anticorruption)
+  const items = all.filter((d) => (d.group as string) !== 'anticorruption');
   if (items.length === 0) return [];
 
   const byGroup = new Map<string, { title: string; file?: string }[]>();

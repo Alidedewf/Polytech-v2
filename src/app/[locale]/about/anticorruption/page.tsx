@@ -1,9 +1,8 @@
-import { use } from 'react';
-import { useTranslations } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Container from '@/components/ui/Container';
 import PageHeader from '@/components/ui/PageHeader';
 import BackLink from '@/components/ui/BackLink';
+import { getDocumentsByGroup } from '@/lib/content';
 
 function PhoneIcon() {
   return (
@@ -31,19 +30,21 @@ function DocIcon() {
   );
 }
 
-export default function AntiCorruptionPage({
+export default async function AntiCorruptionPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = use(params);
+  const { locale } = await params;
   setRequestLocale(locale);
-  const t = useTranslations('about');
+  const t = await getTranslations('about');
 
   const body = t.raw('anticorruption.body') as string[];
   const phone = t('anticorruption.phone');
   const email = t('anticorruption.email');
   const telHref = `tel:${phone.replace(/[^\d+]/g, '')}`;
+  // Документы категории «Антикоррупционные» из базы (добавляются в разделе «Документы»)
+  const docs = await getDocumentsByGroup(locale, 'anticorruption');
 
   return (
     <>
@@ -97,17 +98,42 @@ export default function AntiCorruptionPage({
           {t('anticorruption.confidential')}
         </p>
 
-        {/* Документы (место под будущие файлы) */}
+        {/* Документы категории «Антикоррупционные» — из базы */}
         <section className="mt-14 max-w-3xl">
           <h2 className="text-xl font-bold text-brand-ink">
             {t('anticorruption.documentsTitle')}
           </h2>
-          <div className="mt-5 flex items-center gap-4 rounded-2xl border border-dashed border-brand-line bg-white p-5 text-brand-muted">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-tag text-brand-blue">
-              <DocIcon />
-            </span>
-            <span className="text-sm">{t('anticorruption.documentsEmpty')}</span>
-          </div>
+          {docs.length > 0 ? (
+            <ul className="mt-5 divide-y divide-brand-line overflow-hidden rounded-2xl border border-brand-line bg-white">
+              {docs.map((doc, i) => (
+                <li key={`${doc.title}-${i}`} className="flex items-center gap-4 px-5 py-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-tag text-brand-blue">
+                    <DocIcon />
+                  </span>
+                  <span className="min-w-0 flex-1 text-sm font-medium text-brand-ink">
+                    {doc.title}
+                  </span>
+                  {doc.file ? (
+                    <a
+                      href={doc.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 rounded-md bg-brand-navy px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-blue"
+                    >
+                      {t('documents.download')}
+                    </a>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="mt-5 flex items-center gap-4 rounded-2xl border border-dashed border-brand-line bg-white p-5 text-brand-muted">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-tag text-brand-blue">
+                <DocIcon />
+              </span>
+              <span className="text-sm">{t('anticorruption.documentsEmpty')}</span>
+            </div>
+          )}
         </section>
 
         <div className="mt-12">
