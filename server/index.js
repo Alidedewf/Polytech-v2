@@ -10,6 +10,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
@@ -18,6 +19,39 @@ const PORT = process.env.PORT || 5001;
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@polytech.kz';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+// Токен с правом записи (Contents: write) для запуска пересборки сайта на GitHub
+const GH_DISPATCH_TOKEN = process.env.GH_DISPATCH_TOKEN || '';
+const GH_REPO = process.env.GH_REPO || 'Alidedewf/Polytech-v2';
+
+/** Просит GitHub пересобрать сайт (repository_dispatch). Тихо ничего не делает,
+ *  если токен не задан. Ошибки не роняют запрос — только лог. */
+function triggerRebuild() {
+  if (!GH_DISPATCH_TOKEN) return;
+  const body = JSON.stringify({ event_type: 'content-updated' });
+  const req = https.request(
+    {
+      hostname: 'api.github.com',
+      path: `/repos/${GH_REPO}/dispatches`,
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${GH_DISPATCH_TOKEN}`,
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'polytech-admin',
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(body),
+      },
+    },
+    (res) => {
+      if (res.statusCode >= 300) {
+        console.error('Пересборка: GitHub ответил', res.statusCode);
+      }
+      res.resume();
+    },
+  );
+  req.on('error', (e) => console.error('Пересборка: ошибка', e.message));
+  req.write(body);
+  req.end();
+}
 
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'projects.json');
@@ -107,6 +141,7 @@ app.post('/api/projects', requireAuth, (req, res) => {
   };
   list.unshift(project);
   writeProjects(list);
+  triggerRebuild();
   res.status(201).json(project);
 });
 
@@ -117,6 +152,7 @@ app.delete('/api/projects/:id', requireAuth, (req, res) => {
     return res.status(404).json({ error: 'Проект не найден' });
   }
   writeProjects(next);
+  triggerRebuild();
   res.json({ ok: true });
 });
 

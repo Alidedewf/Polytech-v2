@@ -1,10 +1,12 @@
 name: Build & Publish (deploy branch)
 
-# Запускается при каждом пуше в main + вручную из вкладки Actions
+# Запускается: при пуше в main, вручную, и по сигналу от бэкенда (админка сохранила контент)
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [content-updated]
 
 # Новый пуш отменяет предыдущий незавершённый прогон
 concurrency:
