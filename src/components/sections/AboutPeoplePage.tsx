@@ -16,11 +16,19 @@ function UserIcon() {
   );
 }
 
-/** Подстраница раздела «О компании»: текст + карточки людей (состав органа). */
-export default function AboutPeoplePage({ sectionKey }: { sectionKey: string }) {
+/** Подстраница раздела «О компании»: текст + карточки людей (состав органа).
+ *  `people` приходит из бэкенда; если пусто — откат на i18n-состав. */
+export default function AboutPeoplePage({
+  sectionKey,
+  people: peopleProp,
+}: {
+  sectionKey: string;
+  people?: Person[];
+}) {
   const t = useTranslations('about');
   const body = t.raw(`${sectionKey}.body`) as string[];
-  const people = (t.raw(`${sectionKey}.people`) as Person[]) ?? [];
+  const fallback = (t.raw(`${sectionKey}.people`) as Person[]) ?? [];
+  const people = peopleProp && peopleProp.length > 0 ? peopleProp : fallback;
 
   return (
     <>

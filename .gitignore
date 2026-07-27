@@ -4,8 +4,10 @@
 /node_modules
 /server/node_modules
 
-# backend runtime data (хранилище проектов создаётся на сервере)
+# backend runtime data (хранилище коллекций создаётся на сервере)
 /server/data
+# загруженные через админку файлы (живут на сервере, в git не идут)
+/server/uploads
 /.pnp
 .pnp.*
 .yarn/*

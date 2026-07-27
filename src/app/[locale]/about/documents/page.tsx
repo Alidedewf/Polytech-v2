@@ -3,6 +3,7 @@ import Container from '@/components/ui/Container';
 import PageHeader from '@/components/ui/PageHeader';
 import BackLink from '@/components/ui/BackLink';
 import DocumentsAccordion from '@/components/sections/DocumentsAccordion';
+import { getDocumentGroups } from '@/lib/content';
 
 type DocGroup = { title: string; items: { title: string; file?: string }[] };
 
@@ -14,7 +15,10 @@ export default async function AboutDocumentsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('about');
-  const groups = t.raw('documents.groups') as DocGroup[];
+  // Данные из бэкенда; если он недоступен при сборке — откат на i18n-контент.
+  const dynamic = await getDocumentGroups(locale);
+  const groups =
+    dynamic.length > 0 ? dynamic : (t.raw('documents.groups') as DocGroup[]);
 
   return (
     <>

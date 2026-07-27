@@ -82,3 +82,90 @@ export async function deleteProjectApi(id: string) {
   if (!res.ok) throw new Error(data.error || 'Ошибка удаления проекта');
   return data;
 }
+
+/* ===================== Универсальные коллекции ===================== */
+// Разделы: 'vacancies' | 'documents' | 'board' | 'management' | 'partners'
+// (проекты остаются на своих отдельных функциях выше).
+
+function authHeaders(json = true): Record<string, string> {
+  const token = getAuthToken();
+  const h: Record<string, string> = { Authorization: `Bearer ${token}` };
+  if (json) h['Content-Type'] = 'application/json';
+  return h;
+}
+
+/** Запись коллекции: id + createdAt + произвольные поля раздела. */
+export type CollectionItem = { id: string; createdAt?: string } & Record<
+  string,
+  unknown
+>;
+
+export async function fetchCollectionApi(
+  name: string,
+): Promise<CollectionItem[]> {
+  const res = await fetch(`${API_URL}/c/${name}`, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Не удалось загрузить данные раздела');
+  return await res.json();
+}
+
+export async function createItemApi(
+  name: string,
+  data: Record<string, unknown>,
+): Promise<CollectionItem> {
+  const res = await fetch(`${API_URL}/c/${name}`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: JSON.stringify(data),
+  });
+  const out = await res.json();
+  if (!res.ok) throw new Error(out.error || 'Ошибка сохранения');
+  return out;
+}
+
+export async function updateItemApi(
+  name: string,
+  id: string,
+  data: Record<string, unknown>,
+): Promise<CollectionItem> {
+  const res = await fetch(`${API_URL}/c/${name}/${id}`, {
+    method: 'PUT',
+    headers: authHeaders(),
+    body: JSON.stringify(data),
+  });
+  const out = await res.json();
+  if (!res.ok) throw new Error(out.error || 'Ошибка сохранения');
+  return out;
+}
+
+export async function deleteItemApi(name: string, id: string) {
+  const res = await fetch(`${API_URL}/c/${name}/${id}`, {
+    method: 'DELETE',
+    headers: authHeaders(false),
+  });
+  const out = await res.json();
+  if (!res.ok) throw new Error(out.error || 'Ошибка удаления');
+  return out;
+}
+
+/** Читает файл как data-URL (base64). */
+function readAsDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result));
+    reader.onerror = () => reject(new Error('Не удалось прочитать файл'));
+    reader.readAsDataURL(file);
+  });
+}
+
+/** Загружает файл (картинку/PDF) на бэкенд, возвращает публичный URL. */
+export async function uploadFileApi(file: File): Promise<string> {
+  const dataUrl = await readAsDataUrl(file);
+  const res = await fetch(`${API_URL}/upload`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: JSON.stringify({ filename: file.name, dataUrl }),
+  });
+  const out = await res.json();
+  if (!res.ok) throw new Error(out.error || 'Ошибка загрузки файла');
+  return out.url as string;
+}
