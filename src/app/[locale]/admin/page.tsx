@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
             </div>
             <div>
               <h1 className="text-lg font-bold tracking-tight text-gray-900">
-                Панель управления PolyTech Park
+                Панель управления PolyTechPark
               </h1>
               <p className="text-xs text-gray-500">Контент сайта</p>
             </div>
