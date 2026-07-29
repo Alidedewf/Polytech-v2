@@ -84,7 +84,7 @@ export default async function RootLayout({
       addressCountry: 'KZ',
       streetAddress: 'ул. Сатпаева, 22/5',
     },
-    email: 'info@stsolutions.kz',
+    email: 'Info@polytechpark.kz',
     telephone: '+7 7172 95 43 43',
   };
 

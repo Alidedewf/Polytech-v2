@@ -101,8 +101,8 @@ export default function Footer() {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <a href="mailto:info@stsolutions.kz" className="text-[#6B7280] text-[15px] font-medium leading-none tracking-wider hover:text-[#002A7A] transition-colors">
-                  info@stsolutions.kz
+                <a href="mailto:Info@polytechpark.kz" className="text-[#6B7280] text-[15px] font-medium leading-none tracking-wider hover:text-[#002A7A] transition-colors">
+                  Info@polytechpark.kz
                 </a>
               </li>
 

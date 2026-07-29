@@ -19,7 +19,7 @@ export default async function ContactsPage({
     contact?.address ||
     `${tFooter('address_part1')} ${tFooter('address_part2')}`;
   const phone = contact?.phone || '+7 7172 95 43 43';
-  const email = contact?.email || 'info@stsolutions.kz';
+  const email = contact?.email || 'Info@polytechpark.kz';
   const telHref = `tel:${phone.replace(/[^\d+]/g, '')}`;
 
   return (

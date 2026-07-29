@@ -265,7 +265,7 @@ const MAP_QUERY = 'Satbayev University, ул. Сатпаева 22, Алматы,
 
 const CONTACT_BASE = {
   phone: '+7 7172 95 43 43',
-  email: 'info@stsolutions.kz',
+  email: 'Info@polytechpark.kz',
   mapQuery: MAP_QUERY,
   mapLatitude: 43.2389,
   mapLongitude: 76.9302,
