@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content="0; url=/ru/" />
+    <link rel="canonical" href="/ru/" />
+    <title>PolyTech Park</title>
+    <script>
+      // Перенаправление с корня на локаль (сайт статический, middleware нет).
+      (function () {
+        var supported = ['ru', 'kk', 'en'];
+        var lang = (navigator.language || 'ru').slice(0, 2).toLowerCase();
+        var target = supported.indexOf(lang) !== -1 ? lang : 'ru';
+        location.replace('/' + target + '/');
+      })();
+    </script>
+  </head>
+  <body>
+    Переход на <a href="/ru/">/ru/</a>…
+  </body>
+</html>
