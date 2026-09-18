@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://polytechpark.kz
+Sitemap: https://polytechpark.kz/sitemap.xml
